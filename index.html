@@ -23,6 +23,11 @@
             padding-top: 30px;
             min-height: 70px;
             border-bottom: #77aaff 3px solid;
+            text-align: center; /* Center the header content */
+        }
+        header img {
+            max-width: 150px; /* Adjust the size as needed */
+            border-radius: 50%; /* Make the image circular */
         }
         header a {
             color: #fff;
@@ -40,10 +45,11 @@
             padding: 0 20px 0 20px;
         }
         header #branding {
-            float: left;
+            float: none;
+            text-align: center; /* Center the branding content */
         }
         header #branding h1 {
-            margin: 0;
+            margin: 10px 0 0 0; /* Adjust margins to provide spacing */
         }
         section {
             padding: 20px;
@@ -78,9 +84,10 @@
     <header>
         <div class="container">
             <div id="branding">
+                <!-- Image added here -->
+                <img src="profile.jpg" alt="James Shanley Pratt">
                 <h1>James Shanley Pratt</h1>
-                <h2>MEng</h2>
-                <h3>Software Developer & Cloud Engineer</h3>
+                <h2>Software Developer & Cloud Engineer</h2>
             </div>
         </div>
     </header>
@@ -96,9 +103,9 @@
     </section>
 
     <section class="container">
-        <h2>CV</h2>
+        <h2>Resume</h2>
         <!-- Button to open PDF in a new tab -->
-        <a href="CV.pdf" target="_blank" class="pdf-button">View CV</a>
+        <a href="resume.pdf" target="_blank" class="pdf-button">View Resume</a>
     </section>
 
     <footer>
