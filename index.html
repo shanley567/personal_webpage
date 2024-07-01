@@ -3,253 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Shanley Pratt</title>
+    <title>Sidebar Navigation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            justify-content: flex-start; /* Align content to the top */
-            min-height: 100vh; /* Ensure full viewport height */
-            flex-wrap: wrap; /* Wrap content if it overflows */
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
         header {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            z-index: 1000; /* Ensure header stays on top */
-        }
-        header img {
-            max-width: 150px;
-            border-radius: 50%;
-        }
-        header h1 {
-            margin: 10px 0;
-        }
-        .sidebar {
-            width: 20%;
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            z-index: 999; /* Ensure sidebar is below header */
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
         }
-        .sidebar h2 {
-            cursor: pointer;
-            background-color: #77aaff;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            text-align: center;
+        header img {
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        main {
+            display: flex;
+            flex: 1;
+            background-color: #f0f0f0;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar button {
+            padding: 15px;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
             width: 100%;
-            box-sizing: border-box;
+            cursor: pointer;
+            border-bottom: 1px solid #444;
+            font-size: 16px;
+        }
+        .sidebar button:hover {
+            background-color: #575757;
         }
         .content {
-            width: 60%; /* Adjust content width as needed */
+            flex: 1;
             padding: 20px;
-            box-sizing: border-box;
+            background-color: white;
         }
-        .content section {
+        .content > div {
             display: none;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-            margin-top: auto;
-            border-top: #77aaff 3px solid;
-        }
-        .pdf-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 16px;
-            background-color: #77aaff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .pdf-button:hover {
-            background-color: #0056b3;
+        .content > div.active {
+            display: block;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var headers = document.querySelectorAll('.sidebar h2');
-            var sections = document.querySelectorAll('.content section');
-
-            headers.forEach(function(header, index) {
-                header.addEventListener('click', function() {
-                    sections.forEach(function(section) {
-                        section.style.display = 'none';
-                    });
-                    sections[index].style.display = 'block';
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Shanley Pratt</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            justify-content: flex-start; /* Align content to the top */
-            min-height: 100vh; /* Ensure full viewport height */
-            flex-wrap: wrap; /* Wrap content if it overflows */
-        }
-        header {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            z-index: 1000; /* Ensure header stays on top */
-        }
-        header img {
-            max-width: 150px;
-            border-radius: 50%;
-        }
-        header h1 {
-            margin: 10px 0;
-        }
-        .sidebar {
-            width: 20%;
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            z-index: 999; /* Ensure sidebar is below header */
-        }
-        .sidebar h2 {
-            cursor: pointer;
-            background-color: #77aaff;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .content {
-            width: 60%; /* Adjust content width as needed */
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .content section {
-            display: none;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-            margin-top: auto;
-            border-top: #77aaff 3px solid;
-        }
-        .pdf-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 16px;
-            background-color: #77aaff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .pdf-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var headers = document.querySelectorAll('.sidebar h2');
-            var sections = document.querySelectorAll('.content section');
-
-            headers.forEach(function(header, index) {
-                header.addEventListener('click', function() {
-                    sections.forEach(function(section) {
-                        section.style.display = 'none';
-                    });
-                    sections[index].style.display = 'block';
-                });
-            });
-        });
-    </script>
-</head>
-<body>
-    <header>
-        <img src="profile.jpeg" alt="James Shanley Pratt">
-        <h1>James Shanley Pratt (MEng)</h1>
-        <h2>Software Developer & Cloud Engineer</h2>
+        <img src="profile.jpeg" alt="Logo">
+        <h1>James Shanley Pratt</h1>
     </header>
-
-    <div class="sidebar">
-        <h2>About Me</h2>
-        <h2>Contact</h2>
-        <h2>CV</h2>
-    </div>
-
-    <div class="content">
-        <section>
-            <p>Graduated from Newcastle University with a 2.1 Masters of Chemical Engineering. Worked 2 years with Lloyds Bank as a software developer focusing on Google Cloud Platform.</p>
-        </section>
-
-        <section>
-            <p>Email: <a href="mailto:zyxzyx567@hotmail.com">zyxzyx567@hotmail.com</a></p>
-        </section>
-
-        <section>
-            <a href="CV.pdf" target="_blank" class="pdf-button">View CV</a>
-        </section>
-    </div>
-
-    <footer>
-        <p>James Shanley Pratt &copy; 2024</p>
-    </footer>
-
+    <main>
+        <div class="sidebar">
+            <button onclick="showContent('content1')">About Me</button>
+            <button onclick="showContent('content2')">Qualifications</button>
+            <button onclick="showContent('content3')">Work Experience</button>
+            <button onclick="showContent('content4')">CV</button>
+        </div>
+        <div class="content">
+            <div id="content1" class="active">
+                <h2>About Me</h2>
+                <p>This is the content for the About Me section.</p>
+            </div>
+            <div id="content2">
+                <h2>Qualifications</h2>
+                <p>This is the content for the Qualifications section.</p>
+            </div>
+            <div id="content3">
+                <h2>Work Experience</h2>
+                <p>This is the content for the Work Experience section.</p>
+            </div>
+            <div id="content4">
+                <h2>CV</h2>
+                <p>Below is my CV</p>
+                <a href="CV.pdf" download="James Shanley Pratt CV.pdf" class="download-button">Download PDF</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        function showContent(contentId) {
+            var contents = document.querySelectorAll('.content > div');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(contentId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
