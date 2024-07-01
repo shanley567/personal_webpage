@@ -9,61 +9,93 @@
             display: flex;
             flex-direction: column;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
         }
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #ddd;
+            background-color: #4CAF50;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         header img {
             height: 100px;
             margin-bottom: 10px;
+            border-radius: 50%;
+            border: 2px solid white;
         }
         header h1 {
             margin: 0;
-            font-size: 24px;
-            color: #333;
+            font-size: 28px;
         }
         main {
             display: flex;
             flex: 1;
-            background-color: #f0f0f0;
         }
         .sidebar {
-            width: 200px;
+            width: 250px;
             background-color: #333;
             color: white;
             display: flex;
             flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
         .sidebar button {
-            padding: 15px;
+            padding: 15px 20px;
             background: none;
             border: none;
             color: white;
             text-align: left;
             width: 100%;
             cursor: pointer;
-            border-bottom: 1px solid #444;
             font-size: 16px;
+            transition: background 0.3s;
         }
         .sidebar button:hover {
             background-color: #575757;
         }
         .content {
             flex: 1;
-            padding: 20px;
+            padding: 30px;
             background-color: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         }
         .content > div {
             display: none;
         }
         .content > div.active {
             display: block;
+        }
+        .pdf-button, .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .pdf-button {
+            background-color: #007bff;
+        }
+        .pdf-button:hover {
+            background-color: #0056b3;
+        }
+        .download-button {
+            background-color: #28a745;
+        }
+        .download-button:hover {
+            background-color: #218838;
+        }
+        .content h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -78,6 +110,7 @@
             <button onclick="showContent('content2')">Qualifications</button>
             <button onclick="showContent('content3')">Work Experience</button>
             <button onclick="showContent('content4')">CV</button>
+            <button onclick="showContent('content5')">Contact</button>
         </div>
         <div class="content">
             <div id="content1" class="active">
@@ -93,13 +126,15 @@
                 <p>This is the content for the Work Experience section.</p>
             </div>
             <div id="content4">
-                <h2>CV</h2>
-                  <!-- Button to open PDF in a new tab -->
-                  <a href="CV.pdf" target="_blank" class="pdf-button">Open CV in new tab</a>
-                  <br>
-                  <br>
-                  <!-- Button to download PDF -->
-                  <a href="CV.pdf" download="James Shanley Pratt CV.pdf" class="download-button">Download PDF</a>
+              <h2>CV</h2>
+              <a href="CV.pdf" target="_blank" class="pdf-button">Open CV in new tab</a>
+              <a href="CV.pdf" download="James Shanley Pratt CV.pdf" class="download-button">Download PDF</a>
+            </div>
+            <div id="content5">
+                <h2>Contact</h2>
+                <p>phone:</p>
+                <p>email:</p>
+                <p>linkedin:</p>
             </div>
         </div>
     </main>
