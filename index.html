@@ -59,6 +59,12 @@
             margin-top: 20px;
             border-top: #77aaff 3px solid;
         }
+        /* Styles for the PDF embed */
+        .pdf-container {
+            width: 100%;
+            height: 600px; /* Adjust the height as needed */
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -70,14 +76,25 @@
             </div>
         </div>
     </header>
+
     <section class="container">
         <h2>About Me</h2>
         <p>Graduated from Newcastle University with a 2.1 Masters of Chemical Engineering. Worked 2 years with Lloyds Bank as a software developer focusing on Google Cloud Platform.</p>
     </section>
+
     <section class="container">
         <h2>Contact</h2>
         <p>Email: <a href="mailto:zyxzyx567@hotmail.com">zyxzyx567@hotmail.com</a></p>
     </section>
+
+    <section class="container">
+        <h2>Resume</h2>
+        <!-- Embedding PDF using <embed> tag -->
+        <div class="pdf-container">
+            <embed src="resume.pdf" type="application/pdf" width="100%" height="100%"/>
+        </div>
+    </section>
+
     <footer>
         <p>James Shanley Pratt &copy; 2024</p>
     </footer>
