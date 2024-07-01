@@ -11,58 +11,71 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: flex-start; /* Align content to the top */
+            min-height: 100vh; /* Ensure full viewport height */
+            flex-wrap: wrap; /* Wrap content if it overflows */
         }
         header {
             background: #333;
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77aaff 3px solid;
-            text-align: center; /* Center the header content */
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000; /* Ensure header stays on top */
         }
         header img {
-            max-width: 150px; /* Adjust the size as needed */
-            border-radius: 50%; /* Make the image circular */
+            max-width: 150px;
+            border-radius: 50%;
         }
-        header a {
+        header h1 {
+            margin: 10px 0;
+        }
+        .sidebar {
+            width: 20%;
+            background: #333;
             color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
-        header li {
-            float: right;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: none;
-            text-align: center; /* Center the branding content */
-        }
-        header #branding h1 {
-            margin: 10px 0 0 0; /* Adjust margins to provide spacing */
-        }
-        section {
             padding: 20px;
-            margin: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure sidebar is below header */
+        }
+        .sidebar h2 {
+            cursor: pointer;
+            background-color: #77aaff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .content {
+            width: 60%; /* Adjust content width as needed */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content section {
+            display: none;
             background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         footer {
             background: #333;
             color: #fff;
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
+            width: 100%;
+            margin-top: auto;
             border-top: #77aaff 3px solid;
         }
         .pdf-button {
@@ -79,37 +92,164 @@
             background-color: #0056b3;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var headers = document.querySelectorAll('.sidebar h2');
+            var sections = document.querySelectorAll('.content section');
+
+            headers.forEach(function(header, index) {
+                header.addEventListener('click', function() {
+                    sections.forEach(function(section) {
+                        section.style.display = 'none';
+                    });
+                    sections[index].style.display = 'block';
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div id="branding">
-                <!-- Image added here -->
-                <img src="profile.jpeg" alt="James Shanley Pratt">
-                <h1>James Shanley Pratt (MEng)</h1>
-                <h2>Software Developer & Cloud Engineer</h2>
-            </div>
-        </div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Shanley Pratt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: flex-start; /* Align content to the top */
+            min-height: 100vh; /* Ensure full viewport height */
+            flex-wrap: wrap; /* Wrap content if it overflows */
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000; /* Ensure header stays on top */
+        }
+        header img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+        header h1 {
+            margin: 10px 0;
+        }
+        .sidebar {
+            width: 20%;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Ensure sidebar is below header */
+        }
+        .sidebar h2 {
+            cursor: pointer;
+            background-color: #77aaff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .content {
+            width: 60%; /* Adjust content width as needed */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content section {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            margin-top: auto;
+            border-top: #77aaff 3px solid;
+        }
+        .pdf-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #77aaff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pdf-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var headers = document.querySelectorAll('.sidebar h2');
+            var sections = document.querySelectorAll('.content section');
+
+            headers.forEach(function(header, index) {
+                header.addEventListener('click', function() {
+                    sections.forEach(function(section) {
+                        section.style.display = 'none';
+                    });
+                    sections[index].style.display = 'block';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="profile.jpeg" alt="James Shanley Pratt">
+        <h1>James Shanley Pratt (MEng)</h1>
+        <h2>Software Developer & Cloud Engineer</h2>
     </header>
 
-    <section class="container">
+    <div class="sidebar">
         <h2>About Me</h2>
-        <p>Graduated from Newcastle University with a 2.1 Masters of Chemical Engineering. Worked 2 years with Lloyds Bank as a software developer focusing on Google Cloud Platform.</p>
-    </section>
-
-    <section class="container">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:zyxzyx567@hotmail.com">zyxzyx567@hotmail.com</a></p>
-    </section>
-
-    <section class="container">
         <h2>CV</h2>
-        <!-- Button to open PDF in a new tab -->
-        <a href="CV.pdf" target="_blank" class="pdf-button">View CV</a>
-    </section>
+    </div>
+
+    <div class="content">
+        <section>
+            <p>Graduated from Newcastle University with a 2.1 Masters of Chemical Engineering. Worked 2 years with Lloyds Bank as a software developer focusing on Google Cloud Platform.</p>
+        </section>
+
+        <section>
+            <p>Email: <a href="mailto:zyxzyx567@hotmail.com">zyxzyx567@hotmail.com</a></p>
+        </section>
+
+        <section>
+            <a href="CV.pdf" target="_blank" class="pdf-button">View CV</a>
+        </section>
+    </div>
 
     <footer>
         <p>James Shanley Pratt &copy; 2024</p>
     </footer>
+
 </body>
 </html>
